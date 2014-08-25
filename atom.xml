@@ -4,7 +4,7 @@
   <title><![CDATA[Momiage blog]]></title>
   <link href="http://mominosin.github.io/atom.xml" rel="self"/>
   <link href="http://mominosin.github.io/"/>
-  <updated>2014-08-26T02:44:29+09:00</updated>
+  <updated>2014-08-26T02:48:04+09:00</updated>
   <id>http://mominosin.github.io/</id>
   <author>
     <name><![CDATA[mominosin]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[シェルスクリプトメモ その１〜]]></title>
-    <link href="http://mominosin.github.io/blog/2014/08/26/sierusukuriputomemo-sofalse1~/"/>
+    <link href="http://mominosin.github.io/posts/2014/08/26/sierusukuriputomemo-sofalse1~/"/>
     <updated>2014-08-26T01:50:13+09:00</updated>
-    <id>http://mominosin.github.io/blog/2014/08/26/sierusukuriputomemo-sofalse1~</id>
+    <id>http://mominosin.github.io/posts/2014/08/26/sierusukuriputomemo-sofalse1~</id>
     <content type="html"><![CDATA[<h1>シェルスクリプトメモ その１</h1>
 
 <p>仕事とかでシェルスクリプト書いててよく利用する事を備忘録的にまとめてみようかとおもいます。</p>
