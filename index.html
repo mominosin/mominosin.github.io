@@ -13,8 +13,18 @@
   <meta name="author" content="mominosin">
 
   
-  <meta name="description" content=" Momiage blog
-もみあげのびるかな？ about me All Posts ">
+  <meta name="description" content="Momiage blog
+もみあげのびるかな？ about me シェルスクリプトメモ その１〜 シェルスクリプトメモ その１ 仕事とかでシェルスクリプト書いててよく利用する事を備忘録的にまとめてみようかとおもいます。 コマンドの内容を変数に格納 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+# &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,6 +82,82 @@
 
     <div class="article-list">
       <div class="container">
+        
+          
+          <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+              <article>
+  <h2><a href="/blog/2014/08/26/sierusukuriputomemo-sofalse1~/">シェルスクリプトメモ その１〜</a></h2>
+  
+  <p>
+    <h1>シェルスクリプトメモ その１</h1>
+
+
+
+
+<p>仕事とかでシェルスクリプト書いててよく利用する事を備忘録的にまとめてみようかとおもいます。</p>
+
+
+
+
+<h2>コマンドの内容を変数に格納</h2>
+
+
+<p><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c"># 試しにディレクトリ内のファイルの数を数えてみる</span>
+</span><span class='line'><span class="nv">$ </span>ls -1 <span class="p">|</span> wc -l
+</span><span class='line'>13
+</span><span class='line'><span class="c">#</span>
+</span><span class='line'><span class="nv">$ filecount1</span><span class="o">=</span><span class="k">$(</span>ls -1 <span class="p">|</span> wc -l<span class="k">)</span>
+</span><span class='line'><span class="nv">$ filecount2</span><span class="o">=</span><span class="sb"><code>&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;ls -1 &lt;span class="p"&gt;|&lt;/span&gt; wc -l&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="sb"&gt;</code></span>
+</span><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$filecount1</span>
+</span><span class='line'>13
+</span><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$filecount2</span>
+</span><span class='line'>13
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>変数に格納したいコマンドを<code>$( )</code>又は<code>` `</code>で囲んで変数に渡してやると実行結果が変数に格納される。</p>
+
+
+
+
+  </p>
+  <span class="meta">
+    written 
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2014-08-26T01:50:13+09:00" pubdate data-updated="true"></time>
+    
+
+
+  </span>
+
+  
+    <a class="full-article-link pull-right" rel="full-article" href="/blog/2014/08/26/sierusukuriputomemo-sofalse1~/">Read on &rarr;</a>
+  
+</article>
+
+            </div>
+          </div>
         
       </div>
     </div>
