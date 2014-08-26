@@ -4,7 +4,7 @@
   <title><![CDATA[Momiage blog]]></title>
   <link href="http://mominosin.github.io/atom.xml" rel="self"/>
   <link href="http://mominosin.github.io/"/>
-  <updated>2014-08-26T11:48:12+09:00</updated>
+  <updated>2014-08-26T11:52:52+09:00</updated>
   <id>http://mominosin.github.io/</id>
   <author>
     <name><![CDATA[mominosin]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[シェルスクリプトメモ その１〜]]></title>
-    <link href="http://mominosin.github.io/posts/2014/08/26/sierusukuriputomemo-sofalse1~/"/>
+    <link href="http://mominosin.github.io/blog/2014/08/26/sierusukuriputomemo-sofalse1~/"/>
     <updated>2014-08-26T01:50:13+09:00</updated>
-    <id>http://mominosin.github.io/posts/2014/08/26/sierusukuriputomemo-sofalse1~</id>
+    <id>http://mominosin.github.io/blog/2014/08/26/sierusukuriputomemo-sofalse1~</id>
     <content type="html"><![CDATA[<h1>シェルスクリプトメモ その１</h1>
 
 <p>仕事とかでシェルスクリプト書いててよく利用する事を備忘録的にまとめてみようかとおもいます。</p>
@@ -152,9 +152,9 @@
   
   <entry>
     <title type="html"><![CDATA[The problem with Pingdom]]></title>
-    <link href="http://mominosin.github.io/posts/2012/07/22/the-problem-with-pingdom/"/>
+    <link href="http://mominosin.github.io/blog/2012/07/22/the-problem-with-pingdom/"/>
     <updated>2012-07-22T19:13:00+09:00</updated>
-    <id>http://mominosin.github.io/posts/2012/07/22/the-problem-with-pingdom</id>
+    <id>http://mominosin.github.io/blog/2012/07/22/the-problem-with-pingdom</id>
     <content type="html"><![CDATA[<figure class='code'><figcaption><span>Time to be Awesome - awesome.rb </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Awesome!&quot;</span> <span class="k">unless</span> <span class="n">lame</span>
@@ -182,9 +182,9 @@ bullshit?</p></blockquote>
   
   <entry>
     <title type="html"><![CDATA[Intro]]></title>
-    <link href="http://mominosin.github.io/posts/2012/07/22/intro/"/>
+    <link href="http://mominosin.github.io/blog/2012/07/22/intro/"/>
     <updated>2012-07-22T08:23:00+09:00</updated>
-    <id>http://mominosin.github.io/posts/2012/07/22/intro</id>
+    <id>http://mominosin.github.io/blog/2012/07/22/intro</id>
     <content type="html"><![CDATA[<p>Testing!</p>
 
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sollicitudin, massa eu vestibulum laoreet, nibh ante vulputate lorem, ac lobortis ante tellus eu mi. Duis sem nisi, luctus at feugiat eget, fringilla ut tellus. Nam a molestie justo. Sed pulvinar est vitae tellus semper tincidunt. Fusce euismod luctus lacus nec placerat. Mauris rutrum scelerisque nulla ut tempor. Nunc porttitor posuere mi, aliquet vehicula lorem feugiat in. Ut ut fermentum risus. Aliquam tincidunt ultricies ante sit amet bibendum. Cras nec sapien odio. Duis posuere congue sem, at congue massa faucibus at.</p>
