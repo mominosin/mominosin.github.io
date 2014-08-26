@@ -2,9 +2,9 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: self | Momiage blog]]></title>
-  <link href="http://mominosin.github.io/blog/categories/self/atom.xml" rel="self"/>
+  <link href="http://mominosin.github.io/posts/categories/self/atom.xml" rel="self"/>
   <link href="http://mominosin.github.io/"/>
-  <updated>2014-08-26T11:46:15+09:00</updated>
+  <updated>2014-08-26T11:48:12+09:00</updated>
   <id>http://mominosin.github.io/</id>
   <author>
     <name><![CDATA[mominosin]]></name>
