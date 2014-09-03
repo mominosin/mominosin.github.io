@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="ja"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Momiage blog</title>
+  <title>All Posts - Momiage blog</title>
   <meta name="author" content="mominosin">
 
   
-  <meta name="description" content="RubyのAWS SDKを利用してAWS CLIのS3 Syncっぽいことする AWS SDKを利用してS3のバケット間コピーをやってみる。
-ただバッケット間コピーだけしてもつまらないので、コピー元バケットで更新のあったファイル、又は新規追加されたファイルだけをコピーするようにする。 AWS &hellip;">
+  <meta name="description" content="All Posts S3間でファイルを比較し更新又は新規のファイルがあればコピーする RubyのAWS SDKを利用してAWS CLIのS3 Syncっぽいことする AWS SDKを利用してS3のバケット間コピーをやってみる。
+ただバッケット間コピーだけしてもつまらないので、 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://blog.momiage.tokyo/">
+  <link rel="canonical" href="http://blog.momiage.tokyo/posts/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Momiage blog" type="application/atom+xml">
@@ -62,107 +62,103 @@
 </nav>
     <div id="main">
       <div id="content">
-        <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/09/04/awss32s3/">S3間でファイルを比較し更新又は新規のファイルがあればコピーする</a></h1>
-    
-    
-      <div class="post-meta">
-        <p class="meta">
-          <span class="timestamp">- 
-
-
-
-
-
-
-
-
-  
-
-
-
-<time datetime="2014-09-04T01:32:56+09:00" pubdate data-updated="true"></time> -</span>
-          
-        </p>
+        <div class="all-posts">
+  <div class="container">
+    <div class="row">
+      <div class="list-title col-md-offset-3 col-md-6">
+        <h4>All Posts</h4>
       </div>
-    
-  </header>
+    </div>
+  </div>
+
+  <div class="article-list">
+    <div class="container">
+      
+      
+      <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+          <article>
+  <h2><a href="/blog/2014/09/04/awss32s3/">S3間でファイルを比較し更新又は新規のファイルがあればコピーする</a></h2>
+  
+  <p>
+    <h1>RubyのAWS SDKを利用してAWS CLIのS3 Syncっぽいことする</h1>
 
 
-  <div class="entry-content"><h1>RubyのAWS SDKを利用してAWS CLIのS3 Syncっぽいことする</h1>
+
 
 <p>AWS SDKを利用してS3のバケット間コピーをやってみる。
 ただバッケット間コピーだけしてもつまらないので、コピー元バケットで更新のあったファイル、又は新規追加されたファイルだけをコピーするようにする。</p>
 
+
+
+
 <p><a href="https://github.com/aws/aws-cli" title="AWS CLI">AWS CLI</a>のS3 sync <code>aws s3 sync s3://hoge s3://fuga</code> っぽいことをやってみる。</p>
+
+
+
 
 <p>あ、今回はAWS SDKのRuby版を利用するのだけど、
 <a href="https://github.com/aws/aws-sdk-ruby" title="aws-sdk">現行のSDK</a>ではなく<a href="https://github.com/aws/aws-sdk-core-ruby" title="aws-sdk-core">開発中のSDK</a>を利用していますー。</p>
 
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/09/04/awss32s3/">Read on &rarr;</a>
-    </footer>
+
+
+
+  </p>
+  <span class="meta">
+    written 
+
+
+
+
+
+
+
+
   
 
 
-      <footer>
-      
-      - <a href="/blog/2014/09/04/awss32s3/">S3間でファイルを比較し更新又は新規のファイルがあればコピーする</a>
-      <time datetime="2014-09-04T01:32:56+09:00" pubdate><span class='month'>Sep</span> <span class='day'>04</span> <span class='year'>2014</span></time>
-      
-      <span class="categories">posted in <a class='category' href='/blog/categories/aws/'>aws</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>, <a class='category' href='/blog/categories/s3/'>s3</a></span>
-      
-      </footer>
-    </article>
-  
-  
-    <article>
-      
-  <header>
+
+<time datetime="2014-09-04T01:32:56+09:00" pubdate data-updated="true"></time>
     
-      <h1 class="entry-title"><a href="/blog/2014/08/26/sierusukuriputomemo-sofalse1/">シェルスクリプトメモ その１〜</a></h1>
-    
-    
-      <div class="post-meta">
-        <p class="meta">
-          <span class="timestamp">- 
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/aws/'>aws</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>, <a class='category' href='/blog/categories/s3/'>s3</a>
+  
+</span>
 
 
-
-
-
-
-
+  </span>
 
   
+    <a class="full-article-link pull-right" rel="full-article" href="/blog/2014/09/04/awss32s3/">Read on &rarr;</a>
+  
+</article>
 
-
-
-<time datetime="2014-08-26T01:50:13+09:00" pubdate data-updated="true"></time> -</span>
-          
-        </p>
+        </div>
       </div>
-    
-  </header>
+      
+      
+      <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+          <article>
+  <h2><a href="/blog/2014/08/26/sierusukuriputomemo-sofalse1/">シェルスクリプトメモ その１〜</a></h2>
+  
+  <p>
+    <h1>シェルスクリプトメモ その１</h1>
 
 
-  <div class="entry-content"><h1>シェルスクリプトメモ その１</h1>
+
 
 <p>仕事とかでシェルスクリプト書いててよく利用する事を備忘録的にまとめてみようかとおもいます。</p>
 
+
+
+
 <h2>コマンドの内容を変数に格納</h2>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+
+<p><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -177,39 +173,50 @@
 </span><span class='line'>13
 </span><span class='line'><span class="c">#</span>
 </span><span class='line'><span class="nv">$ filecount1</span><span class="o">=</span><span class="k">$(</span>ls -1 <span class="p">|</span> wc -l<span class="k">)</span>
-</span><span class='line'><span class="nv">$ filecount2</span><span class="o">=</span><span class="sb">`</span><span class="o">(</span>ls -1 <span class="p">|</span> wc -l<span class="o">)</span><span class="sb">`</span>
+</span><span class='line'><span class="nv">$ filecount2</span><span class="o">=</span><span class="sb"><code>&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;ls -1 &lt;span class="p"&gt;|&lt;/span&gt; wc -l&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="sb"&gt;</code></span>
 </span><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$filecount1</span>
 </span><span class='line'>13
 </span><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$filecount2</span>
 </span><span class='line'>13
-</span></code></pre></td></tr></table></div></figure>
-
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>変数に格納したいコマンドを<code>$( )</code>又は<code>` `</code>で囲んで変数に渡してやると実行結果が変数に格納される。</p>
 
+
+
+
+  </p>
+  <span class="meta">
+    written 
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2014-08-26T01:50:13+09:00" pubdate data-updated="true"></time>
+    
+
+
+  </span>
+
+  
+    <a class="full-article-link pull-right" rel="full-article" href="/blog/2014/08/26/sierusukuriputomemo-sofalse1/">Read on &rarr;</a>
+  
+</article>
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/08/26/sierusukuriputomemo-sofalse1/">Read on &rarr;</a>
-    </footer>
-  
-
-
-      <footer>
-      
-      - <a href="/blog/2014/08/26/sierusukuriputomemo-sofalse1/">シェルスクリプトメモ その１〜</a>
-      <time datetime="2014-08-26T01:50:13+09:00" pubdate><span class='month'>Aug</span> <span class='day'>26</span> <span class='year'>2014</span></time>
-      
-      </footer>
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/archives">Blog Archives</a>
-    
-  </div><!-- /div.pagination -->
-</div><!-- /div.blog-index -->
 
       </div><!-- /div#content -->
     </div><!-- /div#main -->

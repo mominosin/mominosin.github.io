@@ -1,0 +1,381 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="ja"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>シェルスクリプトメモ その１〜 - Momiage blog</title>
+  <meta name="author" content="mominosin">
+
+  
+  <meta name="description" content="シェルスクリプトメモ その１ 仕事とかでシェルスクリプト書いててよく利用する事を備忘録的にまとめてみようかとおもいます。 コマンドの内容を変数に格納 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+# 試しにディレクトリ内のファイルの数を数えてみる
+$ ls -1 | wc -l
+13
+#
+$ &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://blog.momiage.tokyo/blog/2014/08/26/sierusukuriputomemo-sofalse1/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Momiage blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+  
+
+</head>
+
+<body >
+  <div id="container">
+    <header role="banner"><hgroup>
+  <h1><a href="/">Momiage blog</a></h1>
+  
+    <h2>もみあげのびるかな？</h2>
+  
+</hgroup>
+
+</header>
+    <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:blog.momiage.tokyo" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/archives">Archives</a></li>
+</ul>
+
+</nav>
+    <div id="main">
+      <div id="content">
+        <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title"><a href="">シェルスクリプトメモ その１〜</a></h1>
+    
+    
+      <div class="post-meta">
+        <p class="meta">
+          <span class="timestamp">- 
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2014-08-26T01:50:13+09:00" pubdate data-updated="true"></time> -</span>
+          
+        </p>
+      </div>
+    
+  </header>
+
+
+<div class="entry-content"><h1>シェルスクリプトメモ その１</h1>
+
+<p>仕事とかでシェルスクリプト書いててよく利用する事を備忘録的にまとめてみようかとおもいます。</p>
+
+<h2>コマンドの内容を変数に格納</h2>
+
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c"># 試しにディレクトリ内のファイルの数を数えてみる</span>
+</span><span class='line'><span class="nv">$ </span>ls -1 <span class="p">|</span> wc -l
+</span><span class='line'>13
+</span><span class='line'><span class="c">#</span>
+</span><span class='line'><span class="nv">$ filecount1</span><span class="o">=</span><span class="k">$(</span>ls -1 <span class="p">|</span> wc -l<span class="k">)</span>
+</span><span class='line'><span class="nv">$ filecount2</span><span class="o">=</span><span class="sb">`</span><span class="o">(</span>ls -1 <span class="p">|</span> wc -l<span class="o">)</span><span class="sb">`</span>
+</span><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$filecount1</span>
+</span><span class='line'>13
+</span><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$filecount2</span>
+</span><span class='line'>13
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+
+<p>変数に格納したいコマンドを<code>$( )</code>又は<code>` `</code>で囲んで変数に渡してやると実行結果が変数に格納される。</p>
+
+<!--more-->
+
+
+<h2>コマンドの内容を配列に格納</h2>
+
+<p><code>ls</code>や<code>find</code>の内容を個別の変数、配列として格納したい場合</p>
+
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>ls
+</span><span class='line'>file1 file2 file3
+</span><span class='line'><span class="c"># 普通に変数に格納する</span>
+</span><span class='line'><span class="nv">$ files</span><span class="o">=</span><span class="k">$(</span>ls<span class="k">)</span>
+</span><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$files</span>
+</span><span class='line'>file1 file2 file3
+</span><span class='line'><span class="c"># 1つの文字列として格納されている</span>
+</span><span class='line'><span class="c"># 配列に格納</span>
+</span><span class='line'><span class="nv">$ files</span><span class="o">=(</span><span class="k">$(</span>ls<span class="k">)</span><span class="o">)</span>
+</span><span class='line'><span class="nv">$ </span><span class="nb">echo </span>files
+</span><span class='line'>file1
+</span><span class='line'><span class="c"># 配列の場所を指定して参照する場合はxに場所を入力 ${files[x]}</span>
+</span><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="k">${</span><span class="nv">files</span><span class="p">[2]</span><span class="k">}</span>
+</span><span class='line'>file3
+</span><span class='line'><span class="c"># すべて参照(forでループ)</span>
+</span><span class='line'><span class="nv">$ </span><span class="k">for</span> file in <span class="k">${</span><span class="nv">files</span><span class="p">[*]</span><span class="k">}</span> <span class="p">;</span><span class="k">do</span>
+</span><span class='line'>&gt;   <span class="nb">echo</span> <span class="nv">$file</span>
+</span><span class='line'>&gt; <span class="k">done</span>
+</span><span class='line'>file1
+</span><span class='line'>file2
+</span><span class='line'>file3
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+
+<h2>変数の中の文字列をマッチしたところを除外して取り出し</h2>
+
+<p>変数を展開するときにパターンマッチさせる</p>
+
+<div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c"># ファイルのパスを格納</span>
+</span><span class='line'><span class="nv">$ filepath</span><span class="o">=</span><span class="k">$(</span>ls /tmp/test/file1<span class="k">)</span>
+</span><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="k">${</span><span class="nv">filepath</span><span class="k">}</span>
+</span><span class='line'>/tmp/test/file1
+</span><span class='line'><span class="c"># 前方からマッチした所を除外</span>
+</span><span class='line'><span class="c"># 最短一致</span>
+</span><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="k">${</span><span class="nv">filepath</span><span class="p">#*/</span><span class="k">}</span>
+</span><span class='line'>tmp/test/file1
+</span><span class='line'><span class="c"># 最長一致</span>
+</span><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="k">${</span><span class="nv">filepath</span><span class="p">##*/</span><span class="k">}</span>
+</span><span class='line'>file1
+</span><span class='line'>
+</span><span class='line'><span class="c"># 後方からマッチした所を除外</span>
+</span><span class='line'><span class="c"># 最短一致（後方から)</span>
+</span><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="k">${</span><span class="nv">filepath</span><span class="p">%/*</span><span class="k">}</span>
+</span><span class='line'>/tmp/test
+</span><span class='line'><span class="c"># 最長一致（後方から）※今回は出力なし</span>
+</span><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="k">${</span><span class="nv">filepath</span><span class="p">%%/*</span><span class="k">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+
+<p>とりあえず1回めの記事なのでこれくらいでおわります。</p>
+
+<p>なお、内容はちゃんと調べて記載してるわけではないので僕の理解等に間違い等ありましたらご指摘いただけると幸いです。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mominosin</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+<time datetime="2014-08-26T01:50:13+09:00" pubdate data-updated="true"></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://blog.momiage.tokyo/blog/2014/08/26/sierusukuriputomemo-sofalse1/" data-via="mominosin" data-counturl="http://blog.momiage.tokyo/blog/2014/08/26/sierusukuriputomemo-sofalse1/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/09/04/awss32s3/" title="Next Post: S3間でファイルを比較し更新又は新規のファイルがあればコピーする">S3間でファイルを比較し更新又は新規のファイルがあればコピーする &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+
+</div>
+
+      </div><!-- /div#content -->
+    </div><!-- /div#main -->
+  </div><!-- /div.container -->
+  <footer><div id="footer-widgets-wrapper">
+  <div id="footer-first" class="footer-widget">
+    <h3>About Me</h3>
+    <section class="about-me">
+      
+      <div>
+        <ul>
+          
+            <li>GitHub: <a href="https://github.com/mominosin">@mominosin</a></li>
+          
+          
+            <li>Twitter: <a href="https://twitter.com/mominosin">@mominosin</a></li>
+          
+            <li>Blog: <a href="http://blog.momiage.tokyo">http://blog.momiage.tokyo</a></li>
+        </ul>
+        <p>
+          V!mm!shment Th!s World!
+        </p>
+      </div>
+    </section>
+  </div><!-- /div#footer-second -->
+
+  <div id="footer-second" class="footer-widget">
+    <h3>Recent Posts</h3>
+    <section id="hatena-popular" class="hatena-bookmark">
+      <script language="javascript" type="text/javascript" src="http://b.hatena.ne.jp/js/widget.js" charset="utf-8"></script>
+      <script language="javascript" type="text/javascript">
+        Hatena.BookmarkWidget.url   = "http://blog.momiage.tokyo";
+        Hatena.BookmarkWidget.title = "Recent Posts";
+        Hatena.BookmarkWidget.sort  = "hot";
+        Hatena.BookmarkWidget.width = 0;
+        Hatena.BookmarkWidget.num   = 10;
+        Hatena.BookmarkWidget.theme = "notheme";
+        Hatena.BookmarkWidget.load();
+      </script>
+    </section>
+  </div><!-- /div#footer-second -->
+
+  <div id="footer-third" class="footer-widget">
+    <h3>Popular Posts</h3>
+    <section id="hatena-popular" class="hatena-bookmark">
+      <script language="javascript" type="text/javascript" src="http://b.hatena.ne.jp/js/widget.js" charset="utf-8"></script>
+      <script language="javascript" type="text/javascript">
+        Hatena.BookmarkWidget.url   = "http://blog.momiage.tokyo";
+        Hatena.BookmarkWidget.title = "Popular Posts";
+        Hatena.BookmarkWidget.sort  = "count";
+        Hatena.BookmarkWidget.width = 0;
+        Hatena.BookmarkWidget.num   = 10;
+        Hatena.BookmarkWidget.theme = "notheme";
+        Hatena.BookmarkWidget.load();
+      </script>
+    </section>
+  </div><!-- /div#footer-third -->
+</div><!-- /div#footer-widgets-wrapper -->
+
+<div id="credit" role="contentinfo">
+  <p>
+    Copyright &copy; 2014 - <a href="https://github.com/mominosin/">mominosin</a> -
+    <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> | Themed with <a href="https://github.com/haya14busa/mjolvim-octotheme">Mjolvim</a></span>
+  </p>
+</div>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
