@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Momiage blog]]></title>
+  <link href="http://mominosin.github.io/atom.xml" rel="self"/>
+  <link href="http://mominosin.github.io/"/>
+  <updated>2014-08-27T19:53:55+09:00</updated>
+  <id>http://mominosin.github.io/</id>
+  <author>
+    <name><![CDATA[mominosin]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[シェルスクリプトメモ その１〜]]></title>
+    <link href="http://mominosin.github.io/blog/2014/08/26/sierusukuriputomemo-sofalse1/"/>
+    <updated>2014-08-26T01:50:13+09:00</updated>
+    <id>http://mominosin.github.io/blog/2014/08/26/sierusukuriputomemo-sofalse1</id>
+    <content type="html"><![CDATA[<h1>シェルスクリプトメモ その１</h1>
+
+<p>仕事とかでシェルスクリプト書いててよく利用する事を備忘録的にまとめてみようかとおもいます。</p>
+
+<h2>コマンドの内容を変数に格納</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c"># 試しにディレクトリ内のファイルの数を数えてみる</span>
+</span><span class='line'><span class="nv">$ </span>ls -1 <span class="p">|</span> wc -l
+</span><span class='line'>13
+</span><span class='line'><span class="c">#</span>
+</span><span class='line'><span class="nv">$ filecount1</span><span class="o">=</span><span class="k">$(</span>ls -1 <span class="p">|</span> wc -l<span class="k">)</span>
+</span><span class='line'><span class="nv">$ filecount2</span><span class="o">=</span><span class="sb">`</span><span class="o">(</span>ls -1 <span class="p">|</span> wc -l<span class="o">)</span><span class="sb">`</span>
+</span><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$filecount1</span>
+</span><span class='line'>13
+</span><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$filecount2</span>
+</span><span class='line'>13
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>変数に格納したいコマンドを<code>$( )</code>又は<code>` `</code>で囲んで変数に渡してやると実行結果が変数に格納される。</p>
+
+<!--more-->
+
+
+<h2>コマンドの内容を配列に格納</h2>
+
+<p><code>ls</code>や<code>find</code>の内容を個別の変数、配列として格納したい場合</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>ls
+</span><span class='line'>file1 file2 file3
+</span><span class='line'><span class="c"># 普通に変数に格納する</span>
+</span><span class='line'><span class="nv">$ files</span><span class="o">=</span><span class="k">$(</span>ls<span class="k">)</span>
+</span><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$files</span>
+</span><span class='line'>file1 file2 file3
+</span><span class='line'><span class="c"># 1つの文字列として格納されている</span>
+</span><span class='line'><span class="c"># 配列に格納</span>
+</span><span class='line'><span class="nv">$ files</span><span class="o">=(</span><span class="k">$(</span>ls<span class="k">)</span><span class="o">)</span>
+</span><span class='line'><span class="nv">$ </span><span class="nb">echo </span>files
+</span><span class='line'>file1
+</span><span class='line'><span class="c"># 配列の場所を指定して参照する場合はxに場所を入力 ${files[x]}</span>
+</span><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="k">${</span><span class="nv">files</span><span class="p">[2]</span><span class="k">}</span>
+</span><span class='line'>file3
+</span><span class='line'><span class="c"># すべて参照(forでループ)</span>
+</span><span class='line'><span class="nv">$ </span><span class="k">for</span> file in <span class="k">${</span><span class="nv">files</span><span class="p">[*]</span><span class="k">}</span> <span class="p">;</span><span class="k">do</span>
+</span><span class='line'>&gt;   <span class="nb">echo</span> <span class="nv">$file</span>
+</span><span class='line'>&gt; <span class="k">done</span>
+</span><span class='line'>file1
+</span><span class='line'>file2
+</span><span class='line'>file3
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>変数の中の文字列をマッチしたところを除外して取り出し</h2>
+
+<p>変数を展開するときにパターンマッチさせる</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c"># ファイルのパスを格納</span>
+</span><span class='line'><span class="nv">$ filepath</span><span class="o">=</span><span class="k">$(</span>ls /tmp/test/file1<span class="k">)</span>
+</span><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="k">${</span><span class="nv">filepath</span><span class="k">}</span>
+</span><span class='line'>/tmp/test/file1
+</span><span class='line'><span class="c"># 前方からマッチした所を除外</span>
+</span><span class='line'><span class="c"># 最短一致</span>
+</span><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="k">${</span><span class="nv">filepath</span><span class="p">#*/</span><span class="k">}</span>
+</span><span class='line'>tmp/test/file1
+</span><span class='line'><span class="c"># 最長一致</span>
+</span><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="k">${</span><span class="nv">filepath</span><span class="p">##*/</span><span class="k">}</span>
+</span><span class='line'>file1
+</span><span class='line'>
+</span><span class='line'><span class="c"># 後方からマッチした所を除外</span>
+</span><span class='line'><span class="c"># 最短一致（後方から)</span>
+</span><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="k">${</span><span class="nv">filepath</span><span class="p">%/*</span><span class="k">}</span>
+</span><span class='line'>/tmp/test
+</span><span class='line'><span class="c"># 最長一致（後方から）※今回は出力なし</span>
+</span><span class='line'><span class="nv">$ </span><span class="nb">echo</span> <span class="k">${</span><span class="nv">filepath</span><span class="p">%%/*</span><span class="k">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>とりあえず1回めの記事なのでこれくらいでおわります。</p>
+
+<p>なお、内容はちゃんと調べて記載してるわけではないので僕の理解等に間違い等ありましたらご指摘いただけると幸いです。</p>
+]]></content>
+  </entry>
+  
+</feed>
