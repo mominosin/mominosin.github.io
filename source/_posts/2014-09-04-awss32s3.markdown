@@ -1,0 +1,109 @@
+---
+layout: post
+title: "S3間でファイルを比較し更新又は新規のファイルがあればコピーする"
+date: 2014-09-04 01:32:56 +0900
+comments: true
+categories: ["aws","ruby","s3"]
+---
+
+RubyのAWS SDKを利用してAWS CLIのS3 Syncっぽいことする
+=========
+AWS SDKを利用してS3のバケット間コピーをやってみる。
+ただバッケット間コピーだけしてもつまらないので、コピー元バケットで更新のあったファイル、又は新規追加されたファイルだけをコピーするようにする。
+
+[AWS CLI](https://github.com/aws/aws-cli "AWS CLI")のS3 sync `aws s3 sync s3://hoge s3://fuga` っぽいことをやってみる。
+
+あ、今回はAWS SDKのRuby版を利用するのだけど、
+[現行のSDK](https://github.com/aws/aws-sdk-ruby 'aws-sdk')ではなく[開発中のSDK](https://github.com/aws/aws-sdk-core-ruby 'aws-sdk-core')を利用していますー。
+
+<!--more-->
+
+以下コード解説はコメントにて、もっとスマートなやり方等ご存知の方はご指摘等々いただけたらなと思います。
+
+```ruby
+#! /usr/bin/env ruby
+
+require 'aws-sdk-core'
+
+class S3toS3
+  # アクセスキー,シークレットキー,リージョンを指定
+  # 面倒なのでリージョは最初から東京にしとく
+  def initialize(access_key,secret_key,region = 'ap-northeast-1')
+
+    Aws.config ={
+        :access_key_id => access_key,
+        :secret_access_key => secret_key,
+        :region => region
+    }
+    # S3のクラスを利用
+    @s3 = Aws::S3::Client.new
+  end
+
+  #  バケット内のファイル情報（ファイル名やEtagなどなど）を取得し
+  # ファイル名をKeyとし、etagをvalueとするHashの作成
+  def etag_list(bucket)
+    etaglist = {}
+
+    # 指定したバケット内の情報を取得
+    objs = @s3.list_objects(
+      :bucket => bucket
+    )
+    # バケット内の情報からファイル名(:key)、Etag(:etag)を抽出し
+    # HashのKey,Valueとする
+    objs[:contents].each do |obj|
+      etaglist[obj[:key]] = obj[:etag]
+    end
+    etaglist
+  end
+
+  # srcをbucket/targetへコピーする
+  # コピーできるファイルは１つだけ
+  def copy(bucket,src,target)
+      @s3.copy_object(
+        :bucket      => bucket,
+        :copy_source => src,
+        :key         => target
+      )
+  end
+
+
+  # バッケト間で変更のあったファイル(Etagが異なる)、新規のファイル(Keyが存在しない)だけをコピーする
+  # とりあえこれだけ実行しとけばコピーできる
+  def s3_to_s3(srcbucket,destbucket)
+    # コピー元バケットの情報を取得(ファイル名とEtagのみ)
+    srclist  = etag_list(srcbucket)
+    # コピー先バケットの情報を取得(ファイル名とEtagのみ)
+    destlist = etag_list(destbucket)
+
+    # 同じKey、同じValueの情報をHashから取り除く
+    # 取り除いた後のHashのKey(ファイル名)だけを抽出
+    difflist = srclist.reject{ |k, v| v == destlist[k] }.keys
+
+    # 抽出されたファイル名を１つずつコピーする
+    difflist.each do |file|
+      copy(destbucket,srcbucket + '/' + file, file)
+    end
+    # コピーされたファイル名を返す
+    difflist
+  end
+end
+
+# 実行する場合
+srcbucket  = 'test-src-bucket'
+destbucket = 'test-dest-bucket'
+
+# 設定入れて
+s3 = S3toS3.new(access_key,secret_key, 'ap-northeast-1')
+# コピー
+files = s3.s3_to_s3(tmpbucket,livebucket)
+
+# コピーされたファイル出力！
+require 'pp'
+pp files
+```
+
+以上です。
+ちなみにS3とCloudFfontを連携させていて更新する度にinvalidationしている場合には、このプログラム走らせた後の返り値をinvalidationする値に突っ込んでやればいいかなと思います。
+実はそのままついでに作ったけどまたの機会に…
+
+次はScalaでAWS SDK for JavaつかってEC2のリストとか取るやつでも書こうかな…？
