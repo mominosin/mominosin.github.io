@@ -6,9 +6,28 @@
     <description>Recent content in Categories on もみあげのびるかな？</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
+    <lastBuildDate>Mon, 27 Aug 2018 23:34:28 +0900</lastBuildDate>
     
 	<atom:link href="https://pages.momiage.tokyo/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Aws</title>
+      <link>https://pages.momiage.tokyo/categories/aws/</link>
+      <pubDate>Mon, 27 Aug 2018 23:34:28 +0900</pubDate>
+      
+      <guid>https://pages.momiage.tokyo/categories/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Terraform</title>
+      <link>https://pages.momiage.tokyo/categories/terraform/</link>
+      <pubDate>Mon, 27 Aug 2018 23:34:28 +0900</pubDate>
+      
+      <guid>https://pages.momiage.tokyo/categories/terraform/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on もみあげのびるかな？</title>
-    <link>https://pages.momiage.tokyo/posts/</link>
-    <description>Recent content in Posts on もみあげのびるかな？</description>
+    <title>Tfenv on もみあげのびるかな？</title>
+    <link>https://pages.momiage.tokyo/tags/tfenv/</link>
+    <description>Recent content in Tfenv on もみあげのびるかな？</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>jp</language>
     <lastBuildDate>Mon, 27 Aug 2018 23:34:28 +0900</lastBuildDate>
     
-	<atom:link href="https://pages.momiage.tokyo/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pages.momiage.tokyo/tags/tfenv/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -28,15 +28,6 @@ variable &amp;#34;hoge&amp;#34; {}variable &amp;#34;huga&amp;#34; {} variableは
 試しにこのような内容のファイル用意します。
 そして環境変数設定後に terraform console で動作確認します。
 # 上記で言ったようにprefix付きの環境変数を準備 $ export TF_VAR_hoge=hogefuga # 試しにprefixなしの環境変数も準備 $ export hoge=fizzbuzz # terraform consoleを実行 $ terraform console &amp;gt; var.hoge ## TF_VAR_hoge の値が取得できている hogefuga &amp;gt; var.huga ## 環境変数の設定されていない値はエラーになる 1:3: unknown variable accessed: var.huga in: ※ Terraform Console は変数や、stateの値やTerraform関数の確認に使えたりするのですが、詳細はまたいつか</description>
-    </item>
-    
-    <item>
-      <title>もみあげ</title>
-      <link>https://pages.momiage.tokyo/posts/test-post/</link>
-      <pubDate>Thu, 16 Aug 2018 23:52:23 +0900</pubDate>
-      
-      <guid>https://pages.momiage.tokyo/posts/test-post/</guid>
-      <description>すこしのびてきた ほんの少しね おわり</description>
     </item>
     
   </channel>
